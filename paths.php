@@ -133,7 +133,7 @@ define('ENABLE_MARKDOWN', FALSE);
  * Deprecated as of 3.0.0. Will be removed in a later release.
  */
 
-define('ENABLE_MAILER', FALSE);
+define('ENABLE_MAILER', TRUE);
 
 /**
  * Error Reporting
