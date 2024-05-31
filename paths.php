@@ -1,12 +1,10 @@
 <?php
+
 /**
  * Module:      paths.php
  * Description: This module sets global file folder paths. Also houses
  *              specific, site-wide variables.
- *
- */
-
-/**
+ * 
  * The following are file path definitions for various
  * script and document storage folders used/accessed by the
  * application.
@@ -131,7 +129,7 @@ define('ENABLE_MARKDOWN', FALSE);
  * Default is FALSE.
  */
 
-define('ENABLE_MAILER', FALSE);
+define('ENABLE_MAILER', TRUE);
 
 /**
  * Error Reporting

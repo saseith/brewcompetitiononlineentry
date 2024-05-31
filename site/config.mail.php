@@ -28,7 +28,9 @@ if (ENABLE_MAILER) $mail_use_smtp = TRUE;
 else $mail_use_smtp = FALSE;
 
 // Set this field if you want to override the from address of 'noreply@[website]' address that gets added by default
-$mail_default_from = "";
+// $mail_default_from = "";
+// $mail_default_from = "brixtoberfest@gmail.com";
+$mail_default_from = "khohl63@gmail.com";
 
 // Enable verbose debug output
 // 0 = off (for production use)
@@ -38,18 +40,19 @@ $smtp_debug_level = 2;
 
 // Specify main (and backup, if necessary - ';' separated) SMTP servers.
 // Your host will have one more of these configured for you for an outgoing mail server.
-$smtp_host = "";
+$smtp_host = "email-smtp.us-east-1.amazonaws.com";
 
 // Enable / Disable SMTP authentication
 // To use this option, you'll likely need to have an email address established on your server to send outgoing messages from.
+// $smtp_auth = FALSE;
 $smtp_auth = TRUE;
 
 // SMTP username
 // Generally the email address you are sending from.
-$smtp_username = "";
+$smtp_username = "SMTP_USERNAME";
 
 // SMTP password
-$smtp_password = "";
+$smtp_password = "SMTP_PASSWORD";
 
 // Enable TLS encryption, `tls` and `ssl` are accepted; leave blank if not used.
 $smtp_secure = "ssl";
