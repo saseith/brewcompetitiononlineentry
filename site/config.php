@@ -30,8 +30,7 @@ $hostname = 'localhost';
  * $username = 'fred'.
  */
 
-
-$username = '';
+$username = 'root';
 
 
 /**
@@ -40,7 +39,7 @@ $username = '';
  * $password = 'flintsone'.
  */
 
-$password = '';
+$password = 'DB_PASSWORD';
 
 /**
  * The following line is the name of your MySQL database you set up already.
@@ -48,7 +47,7 @@ $password = '';
  * http://brewingcompetitions.com/install-instructions for setup instructions.
  */
 
-$database = '';
+$database = 'Brixtoberfest';
 
 
 /**
@@ -104,7 +103,7 @@ $brewing = $connection;
  * $prefix = 'comp1_';
  */
 
-$prefix = '';
+$prefix = 'bcoem1_';
 
 /*
  * ******************************************************************************
@@ -118,7 +117,7 @@ $prefix = '';
  * change the variable to something completely unique for each installation.
  */
 
-$installation_id = '';
+$installation_id = '2022';
 
 /*
  * ******************************************************************************
@@ -164,7 +163,9 @@ $setup_free_access = FALSE;
  * Otherwise, the URLs will not be generated correctly! Directions are in the
  * .htaccess file.
  */
-
+/*
+ * $sub_directory = '/bcoem';
+ */
 $sub_directory = '';
 
 /*
