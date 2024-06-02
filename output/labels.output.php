@@ -268,7 +268,8 @@ if (isset($_SESSION['loginUsername'])) {
 				$filename .= ".pdf";
 				$filename = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$filename);
 
-				$pdf->SetFont('Courier','',6);
+				$pdf->SetFont('Arial','',10);
+//				$pdf->SetFont('Courier','',7);
 				
 				// Print labels
 				do {
@@ -280,7 +281,26 @@ if (isset($_SESSION['loginUsername'])) {
 					$subcategory = $row_log['brewSubCategory'];
 					if ($aabc) $cat_output = ltrim($category,"0").".".ltrim($subcategory,"0");
 					else $cat_output = $category.$subcategory;
+
+
+					$style = $row_log['brewCategorySort'].$row_log['brewSubCategory'];
+					$style_name = truncate($row_log['brewStyle'],22);
+
+
+
+
+
+
+					// print entry num at beginning of each row
+					if (($i == 0) || ($i == 2)) {
+						$text = sprintf("\n%s", $row_log['id']);
+						$text = iconv('UTF-8', 'windows-1252', $text);
+						$pdf->Add_Label($text);
+					}
+					$text = sprintf("\n%s  %s  #%s Tbl %s", $row_log['brewCategory'].$row_log['brewSubCategory'], $style_name, $entry_no, $row_log['brewBoxNum']);
+
 					
+/*
 					$text = sprintf("\n%s (%s)  %s (%s)  %s (%s)\n\n\n\n%s (%s)  %s (%s)  %s (%s)",
 					$entry_no, $cat_output,
 					$entry_no, $cat_output,
@@ -291,7 +311,43 @@ if (isset($_SESSION['loginUsername'])) {
 					);
 
 					$text = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$text);              
+*/
+					$text = iconv('UTF-8', 'windows-1252//IGNORE', $text);
 					$pdf->Add_Label($text);
+					$pdf->Add_Label($text);
+
+
+
+					// print entry num at beginning of each row
+					if (($i == 0) || ($i == 2)) {
+						$text = sprintf("\n%s", $row_log['id']);
+						$text = iconv('UTF-8', 'windows-1252', $text);
+						$pdf->Add_Label($text);
+					}
+					$text = sprintf("\n%s  %s  #%s Tbl %s", $row_log['brewCategory'].$row_log['brewSubCategory'], $style_name, $entry_no, $row_log['brewBoxNum']);
+
+					
+/*
+					$text = sprintf("\n%s (%s)  %s (%s)  %s (%s)\n\n\n\n%s (%s)  %s (%s)  %s (%s)",
+					$entry_no, $cat_output,
+					$entry_no, $cat_output,
+					$entry_no, $cat_output,
+					$entry_no, $cat_output,
+					$entry_no, $cat_output,
+					$entry_no, $cat_output
+					);
+*/
+					$text = iconv('UTF-8', 'windows-1252//IGNORE', $text);
+					$pdf->Add_Label($text);
+					$pdf->Add_Label($text);
+
+
+
+
+
+
+
+
 
 				} while ($row_log = mysqli_fetch_assoc($log));
 
