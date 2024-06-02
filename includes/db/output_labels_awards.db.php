@@ -197,8 +197,10 @@ else { // Output by Table.
 	$row_scores = mysqli_fetch_assoc($scores);
 	$totalRows_scores = mysqli_num_rows($scores);
 
+	$entry_count = get_table_info ( 1, "count_total", $row_tables ['id'], $dbTable, "default" );
+
 		do {
-			$query_entries = sprintf("SELECT id,brewBrewerFirstName,brewBrewerLastName,brewName,brewStyle,brewCategorySort,brewSubCategory FROM %s WHERE id='%s'", $prefix."brewing", $row_scores['eid']);
+			$query_entries = sprintf("SELECT id,brewBrewerFirstName,brewBrewerLastName,brewName,brewStyle,brewCategorySort,brewCategory,brewSubCategory FROM %s WHERE id='%s'", $prefix."brewing", $row_scores['eid']);
 			$entries = mysqli_query($connection,$query_entries) or die (mysqli_error($connection));
 			$row_entries = mysqli_fetch_assoc($entries);
 
@@ -222,7 +224,7 @@ else { // Output by Table.
 			}
 
 			else {
-
+/*
 				$text = sprintf("\n%s\n%s\n%s\n'%s'\n%s",
 					$display_place,
 					$table_name,
@@ -230,6 +232,18 @@ else { // Output by Table.
 					html_entity_decode($entry_name),
 					$style_name
 				);
+*/
+			$text = sprintf ( "\nTable %s: %s (%s entries)\n%s Place - %s %s\n%s - %s%s: %s",
+			$row_tables['tableNumber'],
+			html_entity_decode ( $row_tables ['tableName'] ),
+			$entry_count,
+			display_place ( $row_scores ['scorePlace'], 1 ),
+			html_entity_decode ( $row_entries ['brewBrewerFirstName'] ),
+			html_entity_decode ( $row_entries ['brewBrewerLastName'] ),
+			html_entity_decode ( $row_entries ['brewName'] ),
+			$row_entries ['brewCategory'],
+			$row_entries ['brewSubCategory'],
+			html_entity_decode ( $row_entries ['brewStyle'] ) );
 
 			}
 
