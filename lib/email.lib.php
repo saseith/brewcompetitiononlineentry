@@ -10,6 +10,9 @@ require (CLASSES.'phpmailer/src/PHPMailer.php');
 require (CLASSES.'phpmailer/src/SMTP.php');
 
 function sendPHPMailerMessage($mail) {
+// echo "in fn to send mail";
+file_put_contents('php://stderr', print_r("in fn to send mail", TRUE));
+// error_log("in fn to send mail");
 
     require (CONFIG.'config.php');
     require (CONFIG.'config.mail.php');
@@ -27,9 +30,23 @@ function sendPHPMailerMessage($mail) {
 
         $mail->isHTML(true);
 
+// echo "about to send mail";
+error_log("about to send email with these custom and MIME headers: ");
+
+foreach($mail->getCustomHeaders() as $value){
+    error_log($value . "<br>");
+}
+//error_log($mail->getCustomHeaders());
+error_log($mail->getMailMIME());
+
         $mail->send();
+// echo "sent mail";
+error_log("sent mail...");
+// error_log($mail);
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+error_log("Message could not be sent: ");
+error_log($e->getMessage());
     }
 }
 

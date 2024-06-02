@@ -64,7 +64,7 @@ if (($action == "email") && ($id != "default")) {
 	
 	$headers  = "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type: text/html; charset=utf-8" . "\r\n";
-	$headers .= "To: ".$to_name. " <".$to_email.">, " . "\r\n";
+//	$headers .= "To: ".$to_name. " <".$to_email.">, " . "\r\n";
 	$headers .= "From: ".$from_name." Server <".$from_email. ">\r\n";
 	
 	$emails = $to_email;
@@ -155,7 +155,7 @@ if ($action == "forgot") {
 	
 		$headers  = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type: text/html; charset=utf-8" . "\r\n";
-		$headers .= "To: ".$to_name. " <".$to_email.">, " . "\r\n";
+//		$headers .= "To: ".$to_name. " <".$to_email.">, " . "\r\n";
 		$headers .= "From: ".$from_name." Server <".$from_email. ">\r\n";
 
 		$emails = $to_email;
