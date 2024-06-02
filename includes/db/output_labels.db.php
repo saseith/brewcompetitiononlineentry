@@ -29,7 +29,8 @@ if ($go == "entries") {
 			$query_log .= sprintf(" WHERE brewCategorySort='%s'",$filter);
 			if ($tb == "received") $query_log .= sprintf(" AND brewReceived='1'");
 		}
-		$query_log .= " ORDER BY brewCategorySort,brewSubCategory,brewJudgingNumber ASC";
+//		$query_log .= " ORDER BY brewCategorySort,brewSubCategory,brewJudgingNumber ASC";
+		$query_log .= " ORDER BY id ASC";
 
 	}
 
