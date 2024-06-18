@@ -35,7 +35,7 @@ do {
 		html_entity_decode(trim($row_entries['brewName'])),
 		$row_entries['brewStyle']
 		);
-		$text = (iconv("UTF-8", "ASCII//TRANSLIT//IGNORE", transliterator_transliterate('Any-Latin; Latin-ASCII', $text)));
+		$text = (iconv("UTF-8", "windows-1252", $text));
 		$pdf->Add_Label($text);
 	}
 
@@ -106,7 +106,7 @@ if ($_SESSION['prefsWinnerMethod'] == "1") { // Output by Category
 
 			}
 
-			$text = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$text);
+			$text = iconv('UTF-8','windows-1252',$text);
 			$pdf->Add_Label($text);
 
 			} while ($row_scores = mysqli_fetch_assoc($scores));
@@ -179,7 +179,7 @@ elseif ($_SESSION['prefsWinnerMethod'] == "2") { // Output by sub-category
 
 				}
 
-				$text = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$text);
+				$text = iconv('UTF-8','windows-1252',$text);
 				$pdf->Add_Label($text);
 
 			} while ($row_scores = mysqli_fetch_assoc($scores));
@@ -233,21 +233,21 @@ else { // Output by Table.
 					$style_name
 				);
 */
-			$text = sprintf ( "\nTable %s: %s (%s entries)\n%s Place - %s %s\n%s - %s%s: %s",
-			$row_tables['tableNumber'],
-			html_entity_decode ( $row_tables ['tableName'] ),
-			$entry_count,
-			display_place ( $row_scores ['scorePlace'], 1 ),
-			html_entity_decode ( $row_entries ['brewBrewerFirstName'] ),
-			html_entity_decode ( $row_entries ['brewBrewerLastName'] ),
-			html_entity_decode ( $row_entries ['brewName'] ),
-			$row_entries ['brewCategory'],
-			$row_entries ['brewSubCategory'],
-			html_entity_decode ( $row_entries ['brewStyle'] ) );
+				$text = sprintf ( "\nTable %s: %s (%s entries)\n%s Place - %s %s\n%s - %s%s: %s",
+				$row_tables['tableNumber'],
+				html_entity_decode ( $row_tables ['tableName'] ),
+				$entry_count,
+				display_place ( $row_scores ['scorePlace'], 1 ),
+				html_entity_decode ( $row_entries ['brewBrewerFirstName'] ),
+				html_entity_decode ( $row_entries ['brewBrewerLastName'] ),
+				html_entity_decode ( $row_entries ['brewName'] ),
+				$row_entries ['brewCategory'],
+				$row_entries ['brewSubCategory'],
+				html_entity_decode ( $row_entries ['brewStyle'] ) );
 
 			}
 
-			$text = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$text);
+			$text = iconv('UTF-8','windows-1252',$text);
 			if ($display_place != "N/A") $pdf->Add_Label($text);
 
 		} while ($row_scores = mysqli_fetch_assoc($scores));
