@@ -17,8 +17,14 @@ if (($action == "pro-am") && ($filter != "default")) {
 
 else {
 	if ($style_type_info[1] == "1") $query_bos .= " AND scorePlace='1'";
+/* we only want 1st place to print
 	if ($style_type_info[1] == "2") $query_bos .= " AND (scorePlace='1' OR scorePlace='2')";
+*/
+	if ($style_type_info[1] == "2") $query_bos .= " AND scorePlace='1'";
+/* we only want 1st place to print
 	if ($style_type_info[1] == "3") $query_bos .= " AND (scorePlace='1' OR scorePlace='2' OR scorePlace='3')";
+*/
+	if ($style_type_info[1] == "3") $query_bos .= " AND scorePlace='1'";
 }
 
 $query_bos .= " ORDER BY scoreTable ASC";
