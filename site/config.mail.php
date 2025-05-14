@@ -57,9 +57,9 @@ $smtp_username = "SMTP_USERNAME";
 $smtp_password = "SMTP_PASSWORD";
 
 // Enable TLS encryption, `tls` and `ssl` are accepted; leave blank if not used.
-$smtp_secure = "TLS";
+$smtp_secure = "tls";
 
 // TCP port to connect to - likely to be 25, 465, or 587.
-$smtp_port = 465;
+$smtp_port = 587;
 
 ?>
